@@ -1,0 +1,133 @@
+CREATE DATABASE Unity
+USE Unity
+
+CREATE TABLE PerfilProfesional
+(
+    id int NOT NULL PRIMARY KEY,
+    experiencia varchar(255),
+    email_profesional varchar(255),
+    aptitudes_profesionales varchar(255),
+    curriculum varchar(255),
+    certificado_estudio varchar(255),
+    titulo_profesional varchar(255),
+    trabajador_id int
+)
+
+CREATE TABLE PublicacionEmpleo
+(
+    id int NOT NULL PRIMARY KEY,
+    funciones varchar(255),
+    salario float,
+    requisito_empleo_id int,
+    expiracion_tiempo_id int
+)
+
+CREATE TABLE ExpiracionTiempoEmpresa
+(
+    id int NOT NULL PRIMARY KEY,
+    mensaje varchar(255),
+    fecha_emision date,
+    fecha_eliminacion date    
+)
+
+CREATE TABLE Empresa
+(
+    id int NOT NULL PRIMARY KEY,
+    nombre_empresa varchar(255),
+    especialidad varchar (255),
+    vacante_id int,
+    nombre_empleador varchar(255)
+)
+
+CREATE TABLE Empleador
+(
+    id int NOT NULL PRIMARY KEY,
+    genero_empleador char,
+    nombre_empleador varchar(255),
+    apellido_empleador varchar(255),
+    foto_empleador varchar,
+    vacante_id varchar(255)
+)
+
+CREATE TABLE NotificacionEmpresa
+(
+    id int NOT NULL PRIMARY KEY,
+    empleador_id int,
+    Mensaje varchar(255),
+    confirmacion_vacante varchar(255),
+    tiempo_expiracion_id int,
+    publicacion_id int
+)
+
+CREATE TABLE PuestosLibres
+(
+    id int NOT NULL PRIMARY KEY,
+    puesto_libre varchar (255),
+    requisito_empleo_id int
+)
+
+CREATE TABLE AgendaEntrevista
+(
+    id int NOT NULL PRIMARY KEY,
+    entrevista_id int
+)
+
+CREATE TABLE RequisitosEmpleo
+(
+    id int NOT NULL PRIMARY KEY,
+    aptitudes_profesionales varchar(255)
+)
+
+CREATE TABLE Entrevista
+(
+    id int NOT NULL PRIMARY KEY,
+    publicacion_id int,
+    trabajador_id varchar (255),
+    contratar varchar (255)
+)
+
+CREATE TABLE NotificacionTrabajadorIndependiente
+(
+    id int NOT NULL PRIMARY KEY,
+    mensaje varchar,
+    empresa_id int,
+    tiempo_expiracion_id int
+)
+
+CREATE TABLE TrabajadorIndependiente
+(
+    id int NOT NULL PRIMARY KEY,
+    genero_trabajador varchar(255),
+    nombre_trabajador varchar(255),
+    apellido_trabajador varchar(255),
+    foto_trabajador varchar(255),
+    direccion_trabajador varchar(255),
+    numero_celular int,
+    email_personal varchar(255),
+    id_profesional int,
+    id_profesion int
+)
+
+CREATE TABLE Profesion
+(
+    id int NOT NULL PRIMARY KEY,
+    curriculum varchar(255),
+    certificado_estudio varchar(255),
+    titulo_profesional varchar(255)
+)
+
+CREATE TABLE ExpiracionTiempoTrabajador
+(
+    id int NOT NULL PRIMARY KEY,
+    mensaje varchar(255),
+    fecha_emision date,
+    fecha_eliminacion date,
+    fecha_actual date
+)
+
+CREATE TABLE PublicacionTrabajadorIndependiente
+(
+    id int NOT NULL PRIMARY KEY,
+    trabajador_id varchar(255),
+    descripcion varchar(255)
+)
